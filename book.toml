@@ -3,3 +3,6 @@ authors = ["dingweifeng"]
 language = "en"
 src = "src"
 title = "野生量化"
+
+[output.html.fold]
+enable = true
