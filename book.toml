@@ -6,3 +6,5 @@ title = "野生量化"
 
 [output.html.fold]
 enable = true
+
+[preprocessor.katex]
