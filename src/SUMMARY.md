@@ -13,6 +13,9 @@
   - [番茄缠论插件函数说明](./fqchan04/番茄缠论插件函数说明.md)
   - [番茄缠论插件缠论划分算法说明](./fqchan04/番茄缠论插件缠论划分算法说明.md)
 
+- [fqcopilot]()
+  - [形态模型](./fqcopilot/形态模型.md)
+
 - [freshquant]()
   - [Docker方式安装说明](./freshquant/Docker方式安装说明.md)
   - [番茄量化系统使用指南](./freshquant/番茄量化系统使用指南.md)
