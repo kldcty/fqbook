@@ -14,7 +14,16 @@
   - [番茄缠论插件缠论划分算法说明](./fqchan04/番茄缠论插件缠论划分算法说明.md)
 
 - [fqcopilot]()
-  - [形态模型](./fqcopilot/形态模型.md)
+  - [缠论形态模型](./fqcopilot/缠论形态模型.md)
+    - [CLXS0001](./fqcopilot/CLXS0001/README.md)
+    - [CLXS0002](./fqcopilot/CLXS0002/README.md)
+    - [CLXS0003](./fqcopilot/CLXS0003/README.md)
+    - [CLXS0004](./fqcopilot/CLXS0004/README.md)
+    - [CLXS0005](./fqcopilot/CLXS0005/README.md)
+    - [CLXS0006](./fqcopilot/CLXS0006/README.md)
+    - [CLXS0007](./fqcopilot/CLXS0007/README.md)
+    - [CLXS0008](./fqcopilot/CLXS0008/README.md)
+    - [CLXS0009](./fqcopilot/CLXS0009/README.md)
 
 - [freshquant]()
   - [Docker方式安装说明](./freshquant/Docker方式安装说明.md)
