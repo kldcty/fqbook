@@ -28,7 +28,8 @@
 - [freshquant]()
   - [Docker方式安装说明](./freshquant/Docker方式安装说明.md)
   - [番茄量化系统使用指南](./freshquant/番茄量化系统使用指南.md)
-  - []
+  - [功能说明]()
+    - [仓位百分比](./freshquant/功能说明/仓位百分比/README.md)
 
 # 缠中说缠理论
 
