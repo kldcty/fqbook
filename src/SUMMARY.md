@@ -26,6 +26,7 @@
     - [CLXS0009](./fqcopilot/CLXS0009/README.md)
 
 - [freshquant]()
+  - [运行系统的要求](./freshquant/运行系统的要求.md)
   - [Docker方式安装说明](./freshquant/Docker方式安装说明.md)
   - [整合包安装说明](./freshquant/整合包安装说明.md)
   - [番茄量化系统使用指南](./freshquant/番茄量化系统使用指南.md)
