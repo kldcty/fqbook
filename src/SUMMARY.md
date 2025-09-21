@@ -26,6 +26,9 @@
     - [CLXS0008](./fqcopilot/CLXS0008/README.md)
     - [CLXS0009](./fqcopilot/CLXS0009/README.md)
 
+- [fqlite]()
+  - [Fqlite指南](./fqlite/Fqlite指南.md)
+
 - [freshquant]()
   - [运行系统的要求](./freshquant/运行系统的要求.md)
   - [Docker方式安装说明](./freshquant/Docker方式安装说明.md)
