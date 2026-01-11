@@ -4,7 +4,7 @@ language = "en"
 src = "src"
 title = "野生量化"
 
+[preprocessor.typst-math]
+
 [output.html.fold]
 enable = true
-
-[preprocessor.katex]
