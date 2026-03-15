@@ -1,4 +1,4 @@
-# 番茄量化Pro版
+# 番茄量化专业版
 
 ## FQ量化环境Docker安装部署指南
 
@@ -173,43 +173,364 @@ deploy.bat
 
 部署完成后，在浏览器中打开http://127.0.0.1:10003，这是自动化任务管理端。
 
-切换到automation页面，打开自己要允许的任务。
+**重要**：首先需要开启 Asset 自动化传感器。切换到 **Automation** 页面，找到 `default_automation_condition_sensor`，点击切换开关将其开启。这个传感器是 Dagster Asset 架构的核心组件，负责监控和自动触发 Asset 的物化。
+
+然后在 Automation 页面可以查看所有定时任务（Schedules）的状态。任务默认都是开启状态，每天会定时运行。
 
 ![](automation.png)
 
-这样每天会定时运行这些任务。
-
-此时数据库中还没有数据。可以切换到Jobs页面，点击jobSaveStockData，点击Raunchpad，点击最右下角的Launch Run。这样就开始下载股票数据了。查看日志如图所示即为正常。
+此时数据库中还没有数据。可以切换到Jobs页面，点击stock_data_job，点击Launchpad，点击最右下角的Launch Run。这样就开始下载股票数据了。查看日志如图所示即为正常。
 
 ![](launch_run.jpeg)
 
-同样方法，运行jobSaveIndexData，jobSaveFutureData，jobSaveEtfData，jobSaveBondData，下载这几个历史数据。
+同样方法，运行future_data_job、etf_data_job、bond_data_job、index_data_job，下载这几个历史数据。
+
+**注意**：所有数据下载任务都基于 Asset 架构，依赖关系自动管理。首次下载时只需触发根 Asset 的 job（如 stock_data_job），系统会自动下载所有依赖数据。
 
 至此，系统安装完成。在浏览器中打开http://127.0.0.1，可以访问系统的Dashboard。
 
+## 代码更新与重新部署
+
+当代码更新后，会以压缩包的方式提供。需要根据更新的内容选择合适的重新部署方式。
+
+### 代码替换步骤
+
+**重要**：不能直接解压覆盖，否则新版本中删除的文件会在旧版本中残留，可能导致系统运行异常。
+
+**步骤：**
+
+1. **删除旧的代码目录**
+
+```bash
+cd E:\fqkit
+rmdir /S /Q freshquant
+```
+
+或在资源管理器中直接删除 `freshquant` 文件夹。
+
+2. **解压新代码**
+
+将新的压缩包解压到 `E:\fqkit\` 目录，确保生成 `E:\fqkit\freshquant` 目录。
+
+**注意**：不要直接解压到现有的 freshquant 目录，必须先删除旧目录再解压。
+
+3. **验证代码替换**
+
+检查关键文件是否存在：
+
+```bash
+cd E:\fqkit\freshquant
+dir deploy.bat
+dir install.bat
+```
+
+#### 常见问题
+
+**Q: 为什么不能直接解压覆盖？**
+
+A: 直接覆盖只会添加新文件和修改现有文件，但不会删除新版本中已经移除的文件。这些残留的旧文件可能导致系统运行异常、代码冲突、难以排查的错误。
+
+### 更新场景分类
+
+#### 1. 仅 Python 代码更新
+
+如果只是修改了 Python 源代码（如策略、数据处理逻辑等），不需要重新构建 Docker 镜像。
+
+**更新步骤：**
+
+1. **替换代码**
+
+按照上面的"代码替换步骤"保存配置文件、删除旧目录、解压新代码并恢复配置。
+
+2. **重新部署容器**
+
+```bash
+deploy.bat
+```
+
+部署脚本会自动：
+- 停止并删除所有 fq_ 开头的容器
+- 使用现有的镜像重新创建和启动容器
+- 保留所有数据卷（数据库、Redis、Dagster 等）
+
+3. **更新 Windows FQ（必须执行）**
+
+```bash
+install.bat
+```
+
+**重要**：即使只是代码更新，也必须运行 install.bat 来同步 Windows 环境中的依赖和代码，否则命令行工具可能无法正常工作。
+
+#### 2. 依赖更新或配置变更
+
+如果修改了 `pyproject.toml`、添加了新的 Python 包依赖，或修改了 Dockerfile，需要重新构建 rear 镜像。
+
+**更新步骤：**
+
+1. **替换代码**
+
+按照上面的"代码替换步骤"保存配置文件、删除旧目录、解压新代码并恢复配置。
+
+2. **重新构建 rear 镜像**
+
+```bash
+build_rear.bat
+```
+
+等待镜像构建完成。如果遇到网络问题，建议使用代理。
+
+3. **重新部署容器**
+
+```bash
+deploy.bat
+```
+
+在部署过程中，当提示 "Whether run rear build?" 时，选择 `N`（因为已经手动构建过）。
+
+4. **更新 Windows FQ（必须执行）**
+
+```bash
+install.bat
+```
+
+**重要**：依赖更新后，Windows 环境必须同步安装新的依赖包，否则可能导致命令行工具运行失败。
+
+#### 3. 前端代码更新
+
+如果修改了前端代码（如 Web UI），需要重新构建 web 镜像。
+
+**更新步骤：**
+
+1. **替换代码**
+
+按照上面的"代码替换步骤"保存配置文件、删除旧目录、解压新代码并恢复配置。
+
+2. **重新构建 web 镜像**
+
+```bash
+build_web.bat
+```
+
+3. **重新部署容器**
+
+```bash
+deploy.bat
+```
+
+在部署过程中，当提示 "Whether run web build?" 时，选择 `N`。
+
+4. **更新 Windows FQ（必须执行）**
+
+```bash
+install.bat
+```
+
+**重要**：即使只是前端更新，也建议运行 install.bat 以确保 Windows 环境与代码保持同步。
+
+#### 4. 全量更新（代码 + 依赖 + 前端）
+
+如果同时修改了多个部分，可以一次性重新构建所有镜像。
+
+**更新步骤：**
+
+1. **替换代码**
+
+按照上面的"代码替换步骤"保存配置文件、删除旧目录、解压新代码并恢复配置。
+
+2. **重新构建所有镜像**
+
+```bash
+build_rear.bat
+build_web.bat
+```
+
+3. **重新部署容器**
+
+```bash
+deploy.bat
+```
+
+在部署过程中，两次构建提示都选择 `N`。
+
+4. **更新 Windows FQ（必须执行）**
+
+```bash
+install.bat
+```
+
+**重要**：全量更新后，Windows 环境必须同步更新，包括新的依赖和代码变更。
+
+### 验证更新
+
+部署完成后，可以通过以下方式验证更新是否成功：
+
+1. **检查容器状态**
+
+```bash
+docker ps
+```
+
+确保所有 fq_ 开头的容器都在运行。
+
+2. **检查日志**
+
+```bash
+docker logs fq_dagster_daemon
+docker logs fq_guardian
+```
+
+查看是否有错误信息。
+
+3. **访问 Web 界面**
+
+- Dagster UI: http://127.0.0.1:10003
+- Dashboard: http://127.0.0.1
+
+4. **测试功能**
+
+在 Dagster UI 中手动触发一个简单的 job，确认系统正常运行。
+
+### Windows 上的 FQ 更新
+
+**重要**：每次代码更新后，除了更新 Docker 容器外，如果 Windows 上也安装了 FQ（用于命令行运维），必须同步更新。
+
+1. **解压新代码**
+
+将新的压缩包解压到项目目录，覆盖原有文件。
+
+2. **运行安装脚本**
+
+```bash
+install.bat
+```
+
+install.bat 会自动完成以下操作：
+- 检查并创建虚拟环境（如果不存在）
+- 安装或更新 Python 依赖包
+- 运行 install.py 完成安装
+
+**注意**：不需要手动激活虚拟环境，install.bat 会自动处理。如果虚拟环境已存在，脚本会使用现有环境并更新依赖。
+
+3. **验证安装**
+
+```bash
+.venv\Scripts\activate
+fqctl --help
+```
+
+如果 fqctl 命令正常显示帮助信息，说明安装成功。
+
+### 更新流程总结
+
+完整的更新流程应该同时包含 Docker 容器更新和 Windows FQ 更新：
+
+**仅代码更新：**
+```bash
+# 1. 按照"代码替换步骤"替换代码
+# 2. 更新 Docker 容器
+deploy.bat
+# 3. 更新 Windows FQ（必须执行）
+install.bat
+```
+
+**依赖或 Dockerfile 更新：**
+```bash
+# 1. 按照"代码替换步骤"替换代码
+# 2. 重新构建镜像
+build_rear.bat
+# 3. 更新 Docker 容器
+deploy.bat
+# 4. 更新 Windows FQ（必须执行）
+install.bat
+```
+
+**前端代码更新：**
+```bash
+# 1. 按照"代码替换步骤"替换代码
+# 2. 重新构建 web 镜像
+build_web.bat
+# 3. 更新 Docker 容器
+deploy.bat
+# 4. 更新 Windows FQ（必须执行）
+install.bat
+```
+
+### 常见问题
+
+**Q: 更新后系统无法启动？**
+
+A: 检查 Docker 镜像是否成功构建，查看容器日志排查问题：
+
+```bash
+docker logs <container_name>
+```
+
+**Q: 数据会丢失吗？**
+
+A: 不会。所有数据都存储在数据卷中（`FQ_PERSIST_DIR`），更新容器不会影响数据。
+
+**Q: 需要重启正在运行的任务吗？**
+
+A: 部署脚本会自动停止和重启所有容器，包括正在运行的任务。建议在非交易时间进行更新。
+
+**Q: 如何回滚到之前的版本？**
+
+A: 保留旧版本的压缩包，需要回滚时按照"代码替换步骤"用旧版本压缩包替换当前代码，然后重新部署。
+
+**建议**：每次更新前将当前版本的压缩包保存为 `freshquant_backup_YYYYMMDD.zip`。
+
 ## 自动任务说明
 
-打开地址[http://127.0.0.1:10003](http://127.0.0.1:10003)，打开标签页Automation，在上面可以开启或者关闭自动任务。目前的任务有以下这些。
+打开地址[http://127.0.0.1:10003](http://127.0.0.1:10003)，打开标签页Overview，可以查看所有定时任务的状态。
 
-| 名称                                  | 说明                                      | 建议   |
-| ----------------------------------- | --------------------------------------- | ---- |
-| default_automation_condition_sensor | 默认的自动化sensor，要asset的自动物化就要打开这个开关。       | 务必打开 |
-| job_clean_db_schedule               | 每天定时清理数据库中不需要永久保存的数据                    | 打开   |
-| jobBackfillOrder_schedule           | 补单，例如昨天委托但未成交的订单，今天是否继续委托。如果开启，今天会继续委托。 | 按需打开 |
-| jobReverseRepo_schedule             | 逆回购任务，每天收盘前把多余的资金进行逆回购，保留2W现金。          | 按需打开 |
-| jobSaveBondData_schedule            | 收盘后下载债券的行情数据。                           | 打开   |
-| jobSaveEtfData_schedule             | 收盘后下载ETF的行情数据。                          | 打开   |
-| jobSaveFutureData_schedule          | 收盘后下载商品期货的行情数据。                         | 打开   |
-| jobSaveStockData_schedule           | 收盘后下载股票行情数据                             | 打开   |
-| jobUpdateStockPools_schedule        | 最初的股票池计算方式，已废弃                          | 不打开  |
-| sensorSaveStockData                 | 股票行情数据下载完成探测，探测到股票数据下载完成就开始下载指数数据下载     | 打开   |
-| sensorSaveIndexData                 | 指数数据下载完成探测，探测到指数数据下载完成就开始执行计算超级赛道       | 打开   |
+### 重要：开启 Asset 自动化传感器
+
+系统使用 Dagster 的 Asset 架构，任务之间的依赖关系通过 Asset 依赖链自动管理。**首次部署后，必须手动开启 Asset 自动化传感器**：
+
+1. 切换到 **Automation** 页面
+2. 找到 `default_automation_condition_sensor`
+3. 点击切换开关将其开启
+
+这个传感器是 Dagster Asset 架构的核心组件，负责监控和自动触发 Asset 的物化。如果不开启这个传感器，Asset 的自动依赖链条将无法工作。
+
+### 数据下载任务
+
+| 名称                  | 说明                       | 执行时间              | 建议   |
+| ------------------- | ------------------------ | ----------------- | ---- |
+| stock_data_schedule  | 股票收盘作业保存行情数据（列表、日线、分钟、除权） | 工作日 16:00        | 打开   |
+| future_data_schedule | 期货收盘数据保存（列表、日线、分钟）       | 工作日 08:30, 16:30 | 打开   |
+| etf_data_schedule    | ETF收盘数据保存（列表、日线、分钟）       | 工作日 16:00        | 打开   |
+| bond_data_schedule   | 债券收盘数据保存（列表、日线）           | 工作日 16:00        | 打开   |
+| index_data_schedule  | 指数收盘数据保存（列表、日线、分钟）        | 工作日 16:00        | 打开   |
+
+所有数据下载任务都基于 Asset 架构，执行时会自动下载依赖数据。例如股票数据任务会依次下载：股票列表 → 股票板块/日线/分钟/除权数据。
+
+### 交易相关任务
+
+| 名称                          | 说明                    | 执行时间          | 建议   |
+| --------------------------- | --------------------- | ------------- | ---- |
+| exec_reverse_repo_schedule  | 国债逆回购，每天收盘前把多余的资金进行逆回购 | 工作日 14:55    | 按需打开 |
+| exec_backfill_order_schedule | 补单，昨天委托但未成交的订单继续委托    | 工作日 09:20    | 按需打开 |
+
+### 系统维护任务
+
+| 名称                | 说明            | 执行时间    | 建议   |
+| ----------------- | ------------- | ------- | ---- |
+| clean_db_schedule | 清理数据库中不需要永久保存的数据 | 每天 21:00 | 打开   |
+
+### 任务执行说明
+
+1. **首次下载数据**：系统安装完成后，需要在 Dagster UI 的 Jobs 页面手动触发首次数据下载。找到对应的 job（如 stock_data_job），点击 Launchpad，然后点击 Launch Run。
+
+2. **Asset 依赖链**：系统采用 Asset 架构，任务之间的依赖关系自动管理。例如，下载股票日线数据会自动等待股票列表下载完成。
+
+3. **任务监控**：在 Asset Catalog 页面可以查看所有 Asset 的状态和依赖关系。
 
 ## 参数配置说明
 
-系统的配置信息放在freshquant数据库的params表中
+系统的配置信息放在 freshquant 数据库的 params 表中。可以通过运行 `fqctl init-param` 命令来交互式配置这些参数。
 
-miniqmt相关配置
+### xtquant 交易配置
 
 ```json
 {
@@ -221,12 +542,12 @@ miniqmt相关配置
 }
 ```
 
-| key           | value                |
-| ------------- | -------------------- |
-| value.path    | qmt中userdata_mini的目录 |
-| value.account | qmt的账号               |
+| key           | value                       |
+| ------------- | -------------------------- |
+| value.path    | MiniQMT 中 userdata_mini 的目录 |
+| value.account | MiniQMT 的登录账号            |
 
-通知配置
+### 通知配置
 
 ```json
 {
@@ -242,80 +563,75 @@ miniqmt相关配置
 }
 ```
 
-| key                            | value         |
-| ------------------------------ | ------------- |
-| value.webhook.dingtalk.private | 持仓股有信号的钉钉通知   |
-| value.webhook.dingtalk.public  | 候选股票池有信号的钉钉通知 |
+| key                            | value                |
+| ------------------------------ | ------------------- |
+| value.webhook.dingtalk.private | 持仓股有信号的钉钉通知（私密通知） |
+| value.webhook.dingtalk.public  | 候选股票池有信号的钉钉通知（公共通知） |
 
-gardian策略配置
+### guardian 交易守护者配置
 
 ```json
 {
-  "code": "gardian",
+  "code": "guardian",
   "value": {
     "stock": {
-      "positionPct": 40,
-      "autoOpen": true,
-      "lot_amount": 3000,
-      "singleAmount": 3000,
+      "position_pct": 30.0,
+      "auto_open": true,
+      "lot_amount": 3000.0,
+      "min_amount": 1000.0
     }
   }
 }
 ```
 
-| key                      | value                                      |
-| ------------------------ | ------------------------------------------ |
-| value.stock.positionPct  | 持仓比例阈值，如果仓位低于这个值，那么候选股出信号的时候会自动买入。         |
-| value.stock.autoOpen     | true的时候，后选股出信号的时候才会自动买入，false的时候只买卖持仓股的信号。 |
-| value.stock.lot_amount   | 一次买入的最大金额，实际买入会根据行情和持仓情况低于这个值。             |
-| value.stock.singleAmount | 废弃，用lot_amount替换                           |
+| key                    | value                                      |
+| --------------------- | ------------------------------------------ |
+| value.stock.position_pct | 最低仓位比例（%）。如果仓位低于这个值，候选股出信号时会自动买入。          |
+| value.stock.auto_open    | 是否自动开仓。true 时候选股出信号会自动买入，false 时只交易持仓股的信号。 |
+| value.stock.lot_amount   | 普通一网交易金额，实际买入会根据行情和持仓情况调整。                   |
+| value.stock.min_amount    | 最低一网交易金额，用于小额资金场景。                          |
 
-监控程序配置
+### monitor 监控程序配置
 
 ```json
 {
   "code": "monitor",
   "value": {
     "stock": {
-      "periods": [
-        "1m"
-      ]
+      "periods": ["1m"],
+      "auto_open": true
     }
   }
 }
 ```
 
-| key                 | value                   |
-| ------------------- | ----------------------- |
-| value.stock.periods | 要监控的时间周期，数组类型，可以配置多个周期。 |
+| key                 | value                                    |
+| ------------------- | ---------------------------------------- |
+| value.stock.periods | 要监控的 K 线周期，数组类型，可选值：1m, 3m, 5m, 15m, 30m, 60m, 90m, 120m, 1d |
+| value.stock.auto_open | 是否自动开启监控                             |
 
-系统Dashboard的url是：http://127.0.0.1
+**注意**：
+- guardian 配置中的 `position_pct`、`auto_open`、`lot_amount`、`min_amount` 字段名已更新为下划线命名
+- monitor 配置中新增了 `auto_open` 字段
+- 使用 `fqctl init-param` 命令可以安全地更新所有配置，无需手动编辑数据库
+
+系统 Dashboard 的 URL 是：http://127.0.0.1
 
 ## 在Windows上安装FQ
 
 上面我们讲的是在Docker中安装各种服务，在windows上我们也要把FQ给安装进去，那么有些事情我们是可以在Windows上完成的，比如后面要讲的命令行运维。
 
-我们的安装需要依赖Miniconda3，所以我们要安装好Miniconda3。用如下命令可以直接安装。
+我们的安装使用 uv 作为 Python 环境和包管理工具。首先需要安装 uv，用如下命令可以直接安装。
 
 ```
-winget install Anaconda.Miniconda3
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-然后我们要在Miniconda3的Prompt中，创建也给给FQ用的环境，比如我们创建也给fqkit的环境。用如下的命令。
-
-```
-conda create -n fqkit python=3.10
-```
+或者访问官网获取更多安装方式：https://github.com/astral-sh/uv
 
 到这里后，你先确保你安装了Visual Studio Community 2022。如果没有的话，先安装好，我们的C++代码需要用到他来编译。记得同时安装好Visual Studio Community 2022的C++桌面开发组件。
 
-安装完成后，我们就可以在源码的根目录运行install.bat来来安装FQ。
-
-当然我们要先激活这个创建的环境。
-
-```
-conda activate fqkit
-```
+安装完成后，我们就可以在源码的根目录运行install.bat来安装FQ。
 
 进入到你源码存放的根目录，比如：
 
@@ -323,10 +639,58 @@ conda activate fqkit
 cd E:\fqkit\freshquant
 ```
 
-然后运行安装脚本：
+有两种安装方式：
+
+**方式一：一键安装（推荐）**
+
+直接运行安装脚本，会自动创建虚拟环境并安装FQ：
 
 ```
 install.bat
+```
+
+安装脚本会自动完成以下步骤：
+1. 检查 uv 是否已安装
+2. 创建虚拟环境（Python 3.12）
+3. 安装基础依赖（pip、chardet）
+4. 运行 install.py 完成安装
+
+**方式二：分步安装**
+
+如果需要先创建虚拟环境再安装，可以使用 create_venv.bat 脚本：
+
+```
+create_venv.bat
+```
+
+这个脚本会创建一个可重定位的虚拟环境（Python 3.12），适合需要在多台机器间迁移环境的场景。
+
+虚拟环境创建完成后，再运行：
+
+```
+install.bat
+```
+
+由于虚拟环境已经存在，install.bat 会跳过创建步骤，直接安装依赖和FQ。
+
+**手动创建虚拟环境**
+
+如果需要手动创建虚拟环境（不使用脚本），可以使用：
+
+```
+uv venv --python 3.12
+```
+
+或者创建可重定位的虚拟环境：
+
+```
+uv venv --relocatable --python 3.12
+```
+
+激活虚拟环境：
+
+```
+.venv\Scripts\activate
 ```
 
 ## 其他配置
@@ -362,8 +726,4 @@ echo '/dev/null' | sudo tee /proc/sys/kernel/core_pattern
 
 ```
 kernel.core_pattern=/dev/null
-```
-
-```
-
 ```
