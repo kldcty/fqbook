@@ -2,7 +2,7 @@
 authors = ["dingweifeng"]
 language = "en"
 src = "src"
-title = "野生量化"
+title = "kldcty"
 
 [preprocessor.typst-math]
 

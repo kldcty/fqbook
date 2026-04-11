@@ -1,14 +1,29 @@
+---
+html:
+  embed_local_images: true
+  embed_svg: true
+  offline: false
+
+print_background: false
+---
+
 # 番茄量化专业版
 
 ## FQ量化环境Docker安装部署指南
 
 由于在Windows Docker Desktop上使用，因此一些命令遵循Windows的风格。
 
-### Windows开启Linux子系统
+
+### 系统环境准备步骤
+
+
+![](系统环境准备步骤.jpg)
+
+### Windows的CPU虚拟化/虚拟机平台/WSL
 
 首先确认CPU的虚拟化功能已开启。打开任务管理器，切换到性能的CPU选项卡，查看CPU虚拟化是否已开启。
 
-![](CPU虚拟化.jpeg)
+![](CPU虚拟化.png)
 
 如果未开启，请进入电脑的BIOS设置开启虚拟化。根据电脑主板的不同，请自行找到相应的配置选项进行修改。
 
@@ -31,60 +46,32 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 如果还没有安装WSL，用下面的命令安装WSL。
 
 ```
-winget install Microsoft.WSL
+winget install --id Microsoft.WSL
 ```
 
 或者是升级到WSL的最新版本。
 
 ```
-winget upgrade Microsoft.WSL
+winget upgrade --id Microsoft.WSL
 ```
 
-更新WSL核心到最新版本（效果和winget upgrade Microsoft.WSL一样）。
+更新WSL核心到最新版本（效果和winget upgrade --id Microsoft.WSL一样）。
 
 ```
 wsl --update
 ```
 
-查看确认WSL使用版本2。
-
-```
-wsl --status
-```
-
-![](wsl_status.jpeg)
-
-如果默认版本不是2，请设置WSL的默认版本。
-
-```
-wsl --set-default 2
-```
-
-安装WSL的Ubuntu版本。
-
-```
-wsl --install -d Ubuntu
-```
-
-或者是用这个命令安装wsl的ubuntu（效果和wsl --install -d ubuntu一样）
-
-```
-winget install Canonical.Ubuntu
-```
-
-一般一个命令不顺畅的话，就试试另一个可替代命令。
-
-### 安装Windows Docker Desktop
+### 安装 Windows Docker Desktop
 
 从Docker官网下载Docker Desktop并安装，建议基于WSL2进行安装。这种方式比之前的版本更稳定。安装完成后，系统托盘区会出现一个船形图标，双击即可打开Docker Desktop。
 
-也可以用下面的命令来安装
+也可以用下面的命令来安装。
 
 ```
-winget install Docker.DockerDesktop
+winget install --id Docker.DockerDesktop
 ```
 
-![](windows_docker_desktop.jpeg)
+![](windows_docker_desktop.png)
 
 至此，Docker环境已经安装完成。
 
@@ -92,7 +79,7 @@ winget install Docker.DockerDesktop
 
 找到齿轮按钮打开设置。
 
-![](Docker代理配置.jpeg)
+![](Docker代理配置.png)
 
 在设置中添加镜像加速器地址，可以加速下载。
 
@@ -107,6 +94,11 @@ winget install Docker.DockerDesktop
     }
   },
   "experimental": false,
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-file": "3",
+    "max-size": "10m"
+  },
   "registry-mirrors": [
     "https://dockerproxy.com",
     "https://mirror.baidubce.com",
@@ -119,21 +111,42 @@ winget install Docker.DockerDesktop
 
 接下来开始安装量化系统。
 
+### 安装UV
+
+FQ 的安装使用 uv 作为 Python 环境和包管理工具。首先需要安装 uv，用如下命令可以直接安装。
+
+```
+winget install --id astral-sh.uv
+```
+
+同时确保已安装 Visual Studio Community 2026，并勾选了 C++ 桌面开发组件。FQ 的 C++ 代码需要用它来编译。
+
+```
+winget install --id Microsoft.VisualStudio.Community
+```
+
+安装时务必勾选 **C++ 桌面开发** 工作负载。
+
 ### 设置环境变量
 
 在环境变量中设置以下变量，系统运行时会用到它们。
 
+- FQ_HOME: FQ源码的根目录（根据你自己的填，比如我的是：D:\dev\freshquant）
 - TDX_HOME：指向通达信的安装目录。
 - FQ_PERSIST_DIR：指向量化系统数据存放目录（自己提前建好目录，保证目录存在）。
 
 ```
-set TDX_HOME=E:\new_haitong
-set FQ_PERSIST_DIR=E:\FQ_PERSIST_DIR
-setx TDX_HOME E:\new_haitong
-setx FQ_PERSIST_DIR E:\FQ_PERSIST_DIR
+set FQ_HOME=D:\dev\freshquant
+setx FQ_HOME D:\dev\freshquant
+
+set TDX_HOME=D:\new_tdx64
+setx TDX_HOME D:\new_tdx64
+
+set FQ_PERSIST_DIR=D:\FQ_PERSIST_DIR
+setx FQ_PERSIST_DIR D:\FQ_PERSIST_DIR
 ```
 
-前两句是临时设置当前命令环境的变量，关闭窗口后设置会丢失。后两句是永久设置环境变量，下次打开时环境变量仍然存在。
+`set` 命令是临时设置当前命令环境的变量，关闭窗口后设置会丢失。`setx` 命令是永久设置环境变量，下次打开时环境变量仍然存在。
 
 ### 执行部署
 
@@ -145,19 +158,31 @@ deploy.bat
 
 提示选择通达信的目录。因为软件中需要读取通达信数据，这里输入通达信的安装目录。
 
-![](通达信目录.jpeg)
+![](通达信目录.png)
 
 如果环境变量已经设置正确，这里直接回车使用默认值即可。
 
 提示选择数据存放目录。
 
-![](数据存放目录.jpeg)
+![](数据存放目录.png)
 
 同样，如果环境变量已经设置正确，直接回车使用默认值即可，同时确保目录存在。
 
 提示是否需要构建rear镜像，第一次安装时选择Y，如果已经构建过且代码未更新，可以选择N。
 
-![](build_rear.jpeg)
+配置MONGODB的CPU数量。
+
+![](MONGODBCPUS.png)
+
+根据你实际CPU核数，给他配置2个或者4个吧，
+
+配置MONGODB的内存数。
+
+![](MONGODBMEM.png)
+
+如果你只有32G内存，就给MONGODB分配8G吧，如果你有64G内存，就给他分配16G吧。
+
+![](build_rear.png)
 
 等待rear镜像构建完成。如果遇到卡住的情况，一般是网络问题，建议使用代理。
 
@@ -165,25 +190,25 @@ deploy.bat
 
 询问是否需要构建web镜像，第一次或前端代码有更新时选择Y，否则选择N。
 
-![](build_web.jpeg)
+![](build_web.png)
 
 等待web镜像构建完成。
 
 接下来脚本会在Docker中逐个部署容器。只需等待部署完成。
 
-部署完成后，在浏览器中打开http://127.0.0.1:10003，这是自动化任务管理端。
+部署完成后，在浏览器中打开 http://127.0.0.1:10003 ，这是 Dagster 任务管理界面。
 
-**重要**：首先需要开启 Asset 自动化传感器。切换到 **Automation** 页面，找到 `default_automation_condition_sensor`，点击切换开关将其开启。这个传感器是 Dagster Asset 架构的核心组件，负责监控和自动触发 Asset 的物化。
-
-然后在 Automation 页面可以查看所有定时任务（Schedules）的状态。任务默认都是开启状态，每天会定时运行。
+切换到 **Automation** 页面，可以看到所有自动化任务（Schedules）和传感器（Sensors）。Schedules 默认都是开启状态，每天会定时运行。
 
 ![](automation.png)
 
-此时数据库中还没有数据。可以切换到Jobs页面，点击stock_data_job，点击Launchpad，点击最右下角的Launch Run。这样就开始下载股票数据了。查看日志如图所示即为正常。
+**重要**：需要手动开启 Asset 自动化传感器。在 Automation 页面找到 `default_automation_condition_sensor`，点击其前面的切换按钮将其开启。这个传感器是 Dagster Asset 架构的核心组件，负责监控和自动触发 Asset 的物化。
 
-![](launch_run.jpeg)
+此时数据库中还没有数据。点击导航栏的 **Jobs**，进入 http://127.0.0.1:10003/jobs ，点击 `stock_data_job` 右边的三个点，选择 **Launch new run**，开始下载股票数据。
 
-同样方法，运行future_data_job、etf_data_job、bond_data_job、index_data_job，下载这几个历史数据。
+![](auto_jobs.png)
+
+同样方法，依次运行 `index_data_job`、`etf_data_job`、`bond_data_job`、`future_data_job`，下载这几个历史数据。
 
 **注意**：所有数据下载任务都基于 Asset 架构，依赖关系自动管理。首次下载时只需触发根 Asset 的 job（如 stock_data_job），系统会自动下载所有依赖数据。
 
@@ -202,7 +227,7 @@ deploy.bat
 1. **删除旧的代码目录**
 
 ```bash
-cd E:\fqkit
+cd D:\dev
 rmdir /S /Q freshquant
 ```
 
@@ -210,18 +235,15 @@ rmdir /S /Q freshquant
 
 2. **解压新代码**
 
-将新的压缩包解压到 `E:\fqkit\` 目录，确保生成 `E:\fqkit\freshquant` 目录。
+将新的压缩包解压到 `D:\dev\` 目录，确保生成 `D:\dev\freshquant` 目录。
 
 **注意**：不要直接解压到现有的 freshquant 目录，必须先删除旧目录再解压。
 
-3. **验证代码替换**
-
-检查关键文件是否存在：
+3. **重新运行一次部署**
 
 ```bash
-cd E:\fqkit\freshquant
-dir deploy.bat
-dir install.bat
+cd D:\dev\freshquant
+deploy.bat
 ```
 
 #### 常见问题
@@ -394,9 +416,9 @@ docker logs fq_guardian
 
 **重要**：每次代码更新后，除了更新 Docker 容器外，如果 Windows 上也安装了 FQ（用于命令行运维），必须同步更新。
 
-1. **解压新代码**
+1. **替换代码**
 
-将新的压缩包解压到项目目录，覆盖原有文件。
+按照上面的"代码替换步骤"删除旧目录、解压新代码。
 
 2. **运行安装脚本**
 
@@ -621,22 +643,18 @@ A: 保留旧版本的压缩包，需要回滚时按照"代码替换步骤"用旧
 
 上面我们讲的是在Docker中安装各种服务，在windows上我们也要把FQ给安装进去，那么有些事情我们是可以在Windows上完成的，比如后面要讲的命令行运维。
 
-我们的安装使用 uv 作为 Python 环境和包管理工具。首先需要安装 uv，用如下命令可以直接安装。
+**重要**：在 Windows 上运行任何 FQ 命令（如 `fqctl`）之前，必须先完成本节安装，并激活虚拟环境：
 
 ```
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+.venv\Scripts\activate
 ```
 
-或者访问官网获取更多安装方式：https://github.com/astral-sh/uv
-
-到这里后，你先确保你安装了Visual Studio Community 2022。如果没有的话，先安装好，我们的C++代码需要用到他来编译。记得同时安装好Visual Studio Community 2022的C++桌面开发组件。
-
-安装完成后，我们就可以在源码的根目录运行install.bat来安装FQ。
+我们可以在源码的根目录运行install.bat来安装FQ。
 
 进入到你源码存放的根目录，比如：
 
 ```
-cd E:\fqkit\freshquant
+cd D:\dev\freshquant
 ```
 
 有两种安装方式：
