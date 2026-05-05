@@ -1,0 +1,25 @@
+<style>
+.menu-bar .home-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--fg);
+  text-decoration: none;
+  margin-right: 4px;
+  padding: 4px 8px;
+  font-size: 1.5rem;
+  transition: color 0.2s;
+}
+.menu-bar .home-link:hover { color: var(--links); }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const left = document.querySelector('.left-buttons');
+  if (!left) return;
+  const a = document.createElement('a');
+  a.className = 'home-link';
+  a.href = 'https://kldcty.github.io/';
+  a.title = '首页';
+  a.textContent = '\u{2302}';
+  left.prepend(a);
+});
+</script>
