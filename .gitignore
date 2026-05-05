@@ -1,4 +1,6 @@
-book
+book/
 *.zip
 .baoyu-skills/
 cover-image/
+.venv/
+.aider*

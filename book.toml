@@ -1,10 +1,13 @@
 [book]
 authors = ["dingweifeng"]
-language = "en"
+language = "zh"
 src = "src"
-title = "kldcty"
+title = "野生量化"
 
 [preprocessor.typst-math]
+
+[output.html]
+site-url = "/fqbook/"
 
 [output.html.fold]
 enable = true
