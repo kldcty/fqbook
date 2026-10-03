@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="番茄量化">
+  <title>番茄量化</title>
+  <defs>
+    <linearGradient id="fq-tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141925"/>
+      <stop offset="1" stop-color="#0b0e14"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#fq-tile)"/>
+  <path d="M30.5 24 C28 14 33 6.5 45 6.5 45 6.5 C45.5 17 38.5 25 30.5 24Z" fill="#fbbf24"/>
+  <ellipse cx="32" cy="37.5" rx="18" ry="16.5" fill="#f59e0b"/>
+  <ellipse cx="25" cy="31.5" rx="6.5" ry="5" fill="#fbbf24" fill-opacity="0.45"/>
+</svg>
