@@ -1,0 +1,6601 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+  
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="番茄量化文档站：缠论插件（fqchan / ChanlunX / fqcopilot）、量化系统（fqlite / freshquant）使用指南，方法论思考与缠中说禅 108 课原文。">
+      
+      
+      
+        <link rel="canonical" href="https://kldcty.tech/fqbook/fqchan04/%E7%AC%94%EF%BC%9A%E6%88%90%E7%AC%94%E8%A7%84%E5%88%99%E4%B8%8E%E6%A8%A1%E5%BC%8F%E5%8F%82%E6%95%B0/">
+      
+      
+        <link rel="prev" href="../K%E7%BA%BF%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%9A%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB%E4%B8%8E%E5%88%86%E5%9E%8B/">
+      
+      
+        <link rel="next" href="../%E7%BA%BF%E6%AE%B5%EF%BC%9A%E5%88%92%E5%88%86%E4%B8%8E%E7%BC%BA%E5%8F%A3%E5%A4%84%E7%90%86/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="番茄量化">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:url" content="https://kldcty.tech/fqbook/fqchan04/%E7%AC%94%EF%BC%9A%E6%88%90%E7%AC%94%E8%A7%84%E5%88%99%E4%B8%8E%E6%A8%A1%E5%BC%8F%E5%8F%82%E6%95%B0/">
+  <meta property="og:title" content="笔：成笔规则与模式参数 - 番茄量化">
+  <meta property="og:description" content="番茄量化文档站：缠论插件（fqchan / ChanlunX / fqcopilot）、量化系统（fqlite / freshquant）使用指南，方法论思考与缠中说禅 108 课原文。">
+  <meta name="twitter:card" content="summary">
+
+    
+      
+        <title>笔：成笔规则与模式参数 - 番茄量化</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <style>
+    .md-header__home {
+      display: inline-flex; align-items: center;
+      padding: 0 .6rem; color: var(--md-primary-bg-color);
+      font-size: 1.2rem; text-decoration: none; opacity: .85;
+    }
+    .md-header__home:hover { opacity: 1; }
+  </style>
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="番茄量化" class="md-header__button md-logo" aria-label="番茄量化" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            番茄量化
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              笔：成笔规则与模式参数
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="番茄量化" class="md-nav__button md-logo" aria-label="番茄量化" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    番茄量化
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    番茄量化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    番茄量化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    订阅指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    缠论插件
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    缠论插件
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fqchan01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    fqchan01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqchan01/K%E7%BA%BF%E5%8C%85%E5%90%AB%E5%92%8C%E5%88%86%E5%9E%8B%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    K线包含和分型处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fqchan04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    fqchan04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8F%92%E4%BB%B6%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    插件简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%95%AA%E8%8C%84%E7%BC%A0%E8%AE%BA%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    番茄缠论插件安装指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%95%AA%E8%8C%84%E7%BC%A0%E8%AE%BA%E6%8F%92%E4%BB%B6%E4%BF%A1%E5%8F%B7%E5%80%BC%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    番茄缠论插件信号值说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%95%AA%E8%8C%84%E7%BC%A0%E8%AE%BA%E6%8F%92%E4%BB%B6%E5%85%AC%E5%BC%8F%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    番茄缠论插件公式参数说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%95%AA%E8%8C%84%E7%BC%A0%E8%AE%BA%E6%8F%92%E4%BB%B6%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    番茄缠论插件函数说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%95%AA%E8%8C%84%E7%BC%A0%E8%AE%BA%E6%8F%92%E4%BB%B6%E7%BC%A0%E8%AE%BA%E5%88%92%E5%88%86%E7%AE%97%E6%B3%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    番茄缠论插件缠论划分算法说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../K%E7%BA%BF%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%9A%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB%E4%B8%8E%E5%88%86%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    K线预处理：包含关系与分型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔：成笔规则与模式参数
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔：成笔规则与模式参数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        笔的定义与标准笔
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成笔规则：从分型到笔
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="成笔规则：从分型到笔">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K 线数的缺口计数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        缺口情形的划笔处理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非完备笔：容错与合并
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="非完备笔：容错与合并">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么允许非完备笔
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非完备笔的合并开关
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        强制成笔：15K 兜底与次高次低
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="强制成笔：15K 兜底与次高次低">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么需要强制成笔
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从最高最低点到次高次低
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waveopt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        笔模式与 WAVEOPT 参数体系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        笔信号序列
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见误区与演进修正
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见误区与演进修正">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高频误区
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        规则演进脉络
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同族插件的分笔路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        公式端（通达信 / 金字塔 / 大智慧）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-fqchan04-wheel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python 端（fqchan04 wheel）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        知识来源
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BA%BF%E6%AE%B5%EF%BC%9A%E5%88%92%E5%88%86%E4%B8%8E%E7%BC%BA%E5%8F%A3%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线段：划分与缺口处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%B8%AD%E6%9E%A2%EF%BC%9A%E5%88%92%E5%88%86%E4%B8%8E%E7%94%BB%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    中枢：划分与画法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B5%B0%E5%8A%BF%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%90%8C%E7%BA%A7%E5%88%AB%E5%88%86%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    走势类型与同级别分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E%E6%89%8B%E5%86%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python函数说明手册
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fqchan05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    fqchan05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqchan05/%E6%8F%92%E4%BB%B6%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    插件简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqchan05/%E4%BA%94%E6%B5%AA%E4%B8%8E%E5%AD%90%E6%B5%AA%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    五浪与子浪模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fqchan06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    fqchan06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqchan06/%E6%8F%92%E4%BB%B6%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    插件简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqchan06/%E7%BA%BF%E6%AE%B5%EF%BC%9A%E7%89%B9%E5%BE%81%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线段：特征序列划分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChanlunX
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ChanlunX
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChanlunX/%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装与编译指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fqcopilot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    fqcopilot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装与使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    缠论形态模型
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    缠论形态模型
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/%E7%BC%A0%E8%AE%BA%E5%BD%A2%E6%80%81%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    缠论形态模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/%E4%B9%B0%E5%8D%96%E7%82%B9%EF%BC%9A%E4%B8%80%E4%BA%8C%E4%B8%89%E7%B1%BB%E7%9A%84%E5%88%A4%E5%AE%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    买卖点：一二三类的判定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0000
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0001
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0002
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0003
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0004
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0005
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0006
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0007
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0008
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0009
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0010
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0012
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0014
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0015
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqcopilot/CLXS0017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLXS0017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fqlite
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    fqlite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fqlite/Fqlite%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fqlite指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    freshquant
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    freshquant
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../freshquant/%E6%9E%B6%E6%9E%84%E4%B8%8E%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    架构与数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../freshquant/%E8%BF%90%E8%A1%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%A6%81%E6%B1%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    运行系统的要求
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../freshquant/Docker%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker方式安装说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../freshquant/%E7%95%AA%E8%8C%84%E9%87%8F%E5%8C%96%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    番茄量化系统使用指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8_5" id="__nav_2_8_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    功能说明
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    功能说明
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../freshquant/%E5%8A%9F%E8%83%BD%E8%AF%B4%E6%98%8E/%E4%BB%93%E4%BD%8D%E7%99%BE%E5%88%86%E6%AF%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    仓位百分比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../freshquant/%E5%8A%9F%E8%83%BD%E8%AF%B4%E6%98%8E/%E6%A8%A1%E6%8B%9F%E7%9B%98%E5%92%8C%E5%9B%9E%E6%B5%8B/%E6%A8%A1%E6%8B%9F%E7%9B%98%E5%92%8C%E5%9B%9E%E6%B5%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模拟盘和回测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8_6" id="__nav_2_8_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    系统开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    系统开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../freshquant/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/%E5%A4%9A%E6%97%B6%E9%97%B4%E6%A1%86%E6%9E%B6%E7%AD%96%E7%95%A5%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多时间框架策略开发指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    方法论与思考
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    方法论与思考
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%96%B9%E6%B3%95%E8%AE%BA%E4%B8%8E%E6%80%9D%E8%80%83/%E4%B8%80%E4%B8%AA%E4%BA%BA%E8%83%BD%E4%B8%8D%E8%83%BD%E5%8D%95%E6%9E%AA%E5%8C%B9%E9%A9%AC%E5%81%9A%E9%87%8F%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    一个人能不能单枪匹马做量化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%96%B9%E6%B3%95%E8%AE%BA%E4%B8%8E%E6%80%9D%E8%80%83/%E4%BA%A4%E6%98%93%E7%B3%BB%E7%BB%9F%E9%9C%80%E8%A6%81%E5%AE%8C%E7%BE%8E%E5%90%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    交易系统需要完美吗
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%96%B9%E6%B3%95%E8%AE%BA%E4%B8%8E%E6%80%9D%E8%80%83/%E5%81%9A%E4%B8%80%E5%90%8D%E4%BA%A4%E6%98%93%E7%9A%84%E7%AE%A1%E7%90%86%E8%80%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    做一名交易的管理者
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%96%B9%E6%B3%95%E8%AE%BA%E4%B8%8E%E6%80%9D%E8%80%83/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%B7%A5%E7%A8%8B%E5%93%B2%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    系统设计的工程哲学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    缠中说缠理论
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    缠中说缠理论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/108%E8%AF%BE%E5%AF%BC%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    108课导读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    缠中说禅原文108课
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    缠中说禅原文108课
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0187-486e105c01000461-001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票1：不会赢钱的经济人，只是废人！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0188-486e105c01000467-002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票2：没有庄家，有的只是赢家和输家！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0190-486e105c0100047p-003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票3：你的喜好，你的死亡陷阱！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0202-486e105c010004g8-004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票4：什么是理性？今早买N中工就是理性！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0206-486e105c010004i9-005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票5：市场无须分析，只要看和干！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0355-486e105c010006sw-006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票6：本ID如何在五粮液、包钢权证上提款的！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0379-486e105c0100075q-007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票7：给赚了指数亏了钱的一些忠告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0383-486e105c01000786-008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票8：投资如选面首，G点为中心，拒绝ED男！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0385-486e105c0100079a-009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票9：甄别"早泄"男的数学原则！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0387-486e105c010007a4-010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票10：2005年6月，本ID为何时隔四年后重看股票
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0392-486e105c010007dc-011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票11：不会吻，无以高潮！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0394-486e105c010007ee-012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票12：一吻何能消魂？
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0397-486e105c010007gw-013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票13：不带套的操作不是好操作！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0398-486e105c010007hd-014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票14：喝茅台的高潮程序！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0402-486e105c010007j8-015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票15：没有趋势，没有背驰。
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0408-486e105c010007mr-016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票16：中小资金的高效买卖法。
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0412-486e105c010007p1-017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票17：走势终完美
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0419-486e105c010007t8-018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票18：不被面首的雏男是不完美的。
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0420-486e105c010007u7-019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票19：学习缠中说禅技术分析理论的关键
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0424-486e105c010007zw-020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票20：缠中说禅走势中枢级别扩张及第三类买卖点
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0428-486e105c0100082x-021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票21：缠中说禅买卖点分析的完备性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0430-486e105c0100083z-022/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票22：将8亿的大米装到5个庄家的肚里。
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0433-486e105c01000869-023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票23：市场与人生
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0436-486e105c0100087y-024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票24：MACD对背弛的辅助判断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0440-486e105c010008ak-025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票25：吻，MACD、背弛、中枢
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0446-486e105c010008f9-026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票26：市场风险如何回避
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0449-486e105c010008h4-027/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票27：盘整背驰与历史性底部
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0452-486e105c010008jn-028/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票28：下一目标：摧毁基金
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0456-486e105c010008la-029/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票29：转折的力度与级别
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0459-486e105c010008np-030/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票30：缠中说禅理论的绝对性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0461-486e105c010008ow-031/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票31：资金管理的最稳固基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0467-486e105c010008vo-032/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票32：走势的当下与投资者的思维方式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0469-486e105c010008x4-033/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票33：走势的多义性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0473-486e105c0100090b-034/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票34：宁当面首，莫成怨男
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0475-486e105c01000914-035/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票35：给基础差的同学补补课
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0478-486e105c0100093a-036/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票36：走势类型连接结合性的简单运用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0481-486e105c01000974-037/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票37：背驰的再分辨
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0485-486e105c010009be-038/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票38：走势类型连接的同级别分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0487-486e105c010009d5-039/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票39：同级别分解再研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0490-486e105c010009fp-040/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票40：同级别分解的多重赋格
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0493-486e105c010009i4-041/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票41：没有节奏，只有死
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0497-486e105c010009l8-042/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票42：有些人是不适合参与市场的
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0499-486e105c010009mm-043/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票43：有关背驰的补习课
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0502-486e105c010009oo-044/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票44：小级别背驰引发大级别转折
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0504-486e105c010009q2-045/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票45：持股与持币，两种最基本的操作。
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0509-486e105c010009uy-046/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票46：每日走势的分类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0511-486e105c010009wz-047/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票47：一夜情行情分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0513-486e105c01000a1n-048/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票48：暴跌，牛市行情的一夜情
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0515-486e105c01000a52-049/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票49：利润率最大的操作模式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0516-486e105c01000a5i-050/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票50：操作中的一些细节问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0521-486e105c01000ah1-051/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票51：短线股评荐股者的传销把戏
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0530-486e105c01000amw-052/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票52：炒股票就是真正的学佛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0534-486e105c01000aqw-053/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票53：三类买卖点的再分辨
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0535-486e105c01000arw-054/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票54：一个具体走势的分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0538-486e105c01000aur-055/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票55：买之前戏，卖之高潮
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0541-486e105c01000awo-056/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票56：530印花税当日行情图解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0542-486e105c01000ax3-057/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票57：当下图解分析再示范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0545-486e105c01000az8-058/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票58：图解分析示范三
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0552-486e105c01000b52-059/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票59：图解分析示范四
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0556-486e105c01000b83-060/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票60：图解分析示范五
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0558-486e105c01000b9n-061/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票61：区间套定位标准图解（分析示范六）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0567-486e105c01000bf2-062/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票62：分型、笔与线段
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0569-486e105c01000bgd-063/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票63：替各位理理基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0571-486e105c01000bgx-064/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票64：去机场路上给各位补课
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0593-486e105c01000bpo-065/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票65：再说说分型、笔、线段
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0610-486e105c01000c05-066/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票66：主力资金的食物链
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0614-486e105c01000c16-067/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票67：线段的划分标准
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0619-486e105c01000c2h-068/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票68：走势预测的精确意义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0627-486e105c01000c5b-069/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票69：月线分段与上海大走势分析、预判
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0637-486e105c01000c86-070/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票70：一个教科书式走势的示范分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0639-486e105c01000c8i-071/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票71：线段划分标准的再分辨
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0648-486e105c01000cbj-072/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票72：本ID已有课程的再梳理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0653-486e105c01000ccr-073/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票73：市场获利机会的绝对分类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0659-486e105c01000cej-074/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票74：如何躲避政策性风险
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0663-486e105c01000cf4-075/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票75：逗庄家玩的一些杂史1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0671-486e105c01000chg-076/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票76：逗庄家玩的一些杂史2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0675-486e105c01000cih-077/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票77：一些概念的再分辨
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0677-486e105c01000cio-078/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票78：继续说线段的划分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0682-486e105c01000ck3-079/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票79：分型的辅助操作与一些问题的再解答
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0684-486e105c01000ckk-080/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票80：市场没有同情、不信眼泪
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0695-486e105c01000cmz-081/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票81：图例、更正及分型、走势类型的哲学本质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0708-486e105c01000cq4-082/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票82：分型结构的心理因素
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0711-486e105c01000cqy-083/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票83：笔-线段与线段-最小中枢结构的不同心理意义1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0718-486e105c01000cx4-084/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票84：本ID理论一些必须注意的问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0743-486e105c01000e6h-085/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票85：逗庄家玩的一些杂史3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0747-486e105c01000e7a-086/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票86：走势分析中必须杜绝一根筋思维
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0756-486e105c01000eah-087/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票87：逗庄家玩的一些杂史4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0767-486e105c01000edy-088/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票88：图形生长的一个具体案例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0782-486e105c01000ej2-089/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票89：中阴阶段的具体分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0800-486e105c01000eor-090/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票90：中阴阶段结束时间的辅助判断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0825-486e105c01007wc1-091/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票91：走势结构的两重表里关系1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0844-486e105c01007zm6-092/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票92：中枢震荡的监视器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0869-486e105c0100869y-093/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票93：走势结构的两重表里关系2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0877-486e105c010087ty-094/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票94：当机立断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0879-486e105c0100883w-095/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票95：修炼自己
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0881-486e105c010088ec-096/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票96：无处不在的赌徒心理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0891-486e105c01008a66-097/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票97：中医、兵法、诗歌、操作1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0902-486e105c01008c13-098/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票98：中医、兵法、诗歌、操作2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0911-486e105c01008gz2-099/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票99：走势结构的两重表里关系3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0920-486e105c01008j5w-100/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票100：中医、兵法、诗歌、操作3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0931-486e105c01008l97-101/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票101：答疑1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0934-486e105c01008lt8-102/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票102：再说走势必完美
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0952-486e105c01008pri-103/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票103：学屠龙术前先学好防狼术
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0960-486e105c01008rxy-104/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票104：几何结构与能量动力结构1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/0978-486e105c01008xip-105/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票105：远离聪明、机械操作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/1053-486e105c01009tb9-106/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票106：均线、轮动与缠中说禅板块强弱指标
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/1092-486e105c0100a847-107/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票107：如何操作短线反弹
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../108/1104-486e105c0100abkx-108/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教你炒股票108：何谓底部？从月线看中期走势演化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        笔的定义与标准笔
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成笔规则：从分型到笔
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="成笔规则：从分型到笔">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K 线数的缺口计数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        缺口情形的划笔处理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非完备笔：容错与合并
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="非完备笔：容错与合并">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么允许非完备笔
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非完备笔的合并开关
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        强制成笔：15K 兜底与次高次低
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="强制成笔：15K 兜底与次高次低">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么需要强制成笔
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从最高最低点到次高次低
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waveopt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        笔模式与 WAVEOPT 参数体系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        笔信号序列
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见误区与演进修正
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见误区与演进修正">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高频误区
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        规则演进脉络
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同族插件的分笔路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        公式端（通达信 / 金字塔 / 大智慧）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-fqchan04-wheel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python 端（fqchan04 wheel）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        知识来源
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">笔：成笔规则与模式参数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>适用范围</strong>：本文描述 <strong>fqchan04 内核</strong>的划分实现。fqchan01 有独立的<a href="../../fqchan01/K%E7%BA%BF%E5%8C%85%E5%90%AB%E5%92%8C%E5%88%86%E5%9E%8B%E5%A4%84%E7%90%86/">包含与分型文档</a>，fqchan05（均线笔、子浪）与 fqchan06（极简分笔）的实现差异见各自插件文档。</p>
+</blockquote>
+<p>笔是缠论体系的第一级构件：线段由笔组成，中枢由笔界定，买卖点由笔推导。笔划对了，后面的一切才成立。但笔恰恰是争议最大的部分——不同人对同一段走势画出的笔经常不一样，即所谓「千人千缠」。本章讲清楚番茄缠论（fqchan04）如何把「成笔」变成一套可复现的算法规则，以及这些规则如何通过参数对外开放。</p>
+<p>本章的输入是《K线预处理：包含关系与分型》的产物：经过包含关系处理后的标准化 K 线序列（StdBar），以及在其上识别出的顶分型、底分型。预处理细节不再重复。</p>
+<h2 id="_2">笔的定义与标准笔<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>缠师原文的定义：一笔由相邻的顶分型和底分型连接而成，方向上顶底交替。落实到可编程的判定，核心约束是 K 线数量——<strong>包含关系处理后，从顶分型的高点 K 线到底分型的低点 K 线之间（含两端）的合并 K 线数要达到 5 根</strong>。这是番茄缠论成笔计数的基准口径，后文所有 K 线数约束均指合并后的 K 线（StdBar），不是原始 K 线。</p>
+<p>围绕这个定义，实践中存在两类笔的划分流派：</p>
+<table>
+<thead>
+<tr>
+<th>流派</th>
+<th>划法</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>简笔</td>
+<td>分型端点直接连线</td>
+<td>宽松，适合日线等大周期</td>
+</tr>
+<tr>
+<td>标准笔</td>
+<td>顶底分型满足结合律与 K 线数约束</td>
+<td>严格，程序化实现的首选</td>
+</tr>
+</tbody>
+</table>
+<p>番茄缠论走标准笔路线，但在标准之上做了工程化改造：允许不满足 K 线数要求的<strong>非完备笔</strong>存在（见下文），并通过参数控制严格程度。这种「最大可能满足标准，但不执拗于标准」的取舍，是它区别于教科书实现的关键。</p>
+<h2 id="_3">成笔规则：从分型到笔<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>一笔的成立需要同时满足以下条件：</p>
+<ol>
+<li><strong>顶底交替</strong>：相邻两笔的方向必须相反，笔的端点一顶一底依次连接。</li>
+<li><strong>端点即极值</strong>：笔的顶点是这段走势的最高点，笔的底点是最低点。这个原则贯穿番茄缠论全部划笔逻辑，非完备笔、强制成笔的端点选择都服从它。</li>
+<li><strong>K 线数约束</strong>：顶分型高点 K 线到底分型低点 K 线之间的合并 K 线数达标——模式 5 要求 5 根，模式 4 放宽到 4 根，模式 6 在 5 根之上追加几何约束。</li>
+<li><strong>分型间隔约束（模式 6）</strong>：顶分型与底分型的分型区间不能重叠，且顶底之间的独立 K 线不能「躲」在分型区间里面。分型区间指分型的左 K 与中间 K 构成的区间。</li>
+</ol>
+<p><img alt="模式6的几何约束" src="../pics/02-5.png" /></p>
+<p>上图中，在模式 6 的约束下只有 A 图可以成笔，B 图（分型区间重叠）和 C 图（独立 K 线躲进分型区间）都不能成笔。</p>
+<h3 id="k">K 线数的缺口计数<a class="headerlink" href="#k" title="Permanent link">&para;</a></h3>
+<p>K 线数约束中有一个容易踩坑的细节：<strong>满足特定条件的跳空缺口可以计为 1 根 K 线</strong>。这是刻意设计——缺口意味着价格跳过了一段区间，其信息量近似于一根 K 线。判定规则见下节。</p>
+<h2 id="_4">缺口情形的划笔处理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>早期版本的处理很简单：顶底之间存在缺口就计 1 根 K 线。这会画出「小气」的笔——一个很小的缺口就让 4 根 K 线凑够了 5 根的计数，划分出一笔略显勉强：</p>
+<p><img alt="缺口计数引发的争议划分" src="../pics/02-1.png" /></p>
+<p>上图中参数为 1550（5 根 K 线成笔），1 号到 4 号只有 4 根 K 线，但因为 3 号与 4 号之间存在缺口，缺口计 1 根后凑满 5 根而成笔。从直觉上这种划分并不妥当。</p>
+<p>现在的算法给出了完整的通用判定。设 A 是顶分型的高点 K 线，B 是底分型的低点 K 线，正在判断 A 到 B 是否成笔：</p>
+<ol>
+<li>取 A 到 B 之间相邻的两根 K 线 a、b，且 a 与 b 之间存在缺口；</li>
+<li>若 b 与「A 到 a」之间的任何 K 线都无重叠，<strong>且</strong> a 与「b 到 B」之间的任何 K 线都无重叠，则该缺口计 1 根 K 线；</li>
+<li>不满足上述条件的缺口（例如缺口一侧的 K 线与另一侧 K 线仍有价格接触）不参与计数。</li>
+</ol>
+<p><img alt="缺口计数的判定示意" src="../pics/02-2.png" /></p>
+<p>经过这个调整，前述案例中 4 号 K 线与 2 号 K 线存在接触，缺口不再计数，K 线数不足 5 根，不再强行成笔：</p>
+<p><img alt="调整后的划分结果" src="../pics/02-3.png" /></p>
+<p>一句话总结：<strong>只有「干净」的缺口才算 1 根 K 线</strong>——缺口两侧各自与对方区间完全无重叠，才认可它承载了一根 K 线的份量。</p>
+<h2 id="_5">非完备笔：容错与合并<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">为什么允许非完备笔<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>按 5 根 K 线的严格标准，实际走势中总有一些「差一点」的候选笔。典型场景：</p>
+<p><img alt="非完备笔的典型场景" src="../pics/02-4.png" /></p>
+<p>参数为 1550 时，图中 2 号到 3 号 K 线之间明显不足 5 根，却被划分为一笔。严格意义上它不是（完备）笔——在番茄缠论的术语里，它称为<strong>非完备笔</strong>（也称非标准笔）。</p>
+<p>允许它存在的理由来自级别视角：</p>
+<ul>
+<li>原文中笔是最低级别的构件，由笔递归推出线段、走势、高级别走势，高级别图上基本可以做到同级别划分。但很少有人真的做这种递归计算。</li>
+<li>主流用法是选定一个周期，在该周期上划笔，再从笔推线段、推走势。这样的一笔必然对应某个低级别上的一个走势——而这些低级别走势<strong>并不是同级别的</strong>。</li>
+<li>图中 2 到 3 的非完备笔，实际上是某个低级别上一个完整走势的投影：它在低级别上发生了「小转大」，没有能力完成当前级别的完备一笔。</li>
+</ul>
+<p>所以笔的分类是两种：<strong>完备笔</strong>与<strong>非完备笔</strong>，划分结果中同时存在。由于同时遵循「端点即极值」原则，次高点、次低点只要构成极值转折，也会被承认为笔端点。想把所有笔划成严格同级别几乎不可能——总会有夭折的笔。</p>
+<h3 id="_7">非完备笔的合并开关<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>一个典型触发场景：价格下跌跌破前面上升笔起点的低点。此时可以承认这是一个非完备笔（默认画法），也可以把它<strong>合并到前一个同向笔</strong>中，代价是前一个同向笔被拉长：</p>
+<p><img alt="默认画法：保留非完备笔" src="../pics/02-6.png" /></p>
+<p><img alt="合并画法：非完备笔并入前笔" src="../pics/02-7.png" /></p>
+<p>这个选择通过 WAVEOPT 参数的<strong>万位</strong>控制（详见下文参数体系）：<code>1560</code> 为默认不合并，<code>11560</code> 为合并。合并算法本身也经过迭代修正，旧版存在缺陷，后已订正。</p>
+<h2 id="15k">强制成笔：15K 兜底与次高次低<a class="headerlink" href="#15k" title="Permanent link">&para;</a></h2>
+<h3 id="_8">为什么需要强制成笔<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>如果严格按成笔条件划分，某些走势会出现 K 线延伸很久仍不成笔的情况。笔中所包含的级别会不断长大——以日线为例，标准情况下 1 笔约对应一个 5 分钟级别的走势，笔拖得太久意味着级别扩展，破坏同级别交易的前提。强制成笔就是防过度延伸的兜底机制。</p>
+<p>阈值定为 15 有一个简单的估算依据：1 分钟走势类型最少约 5 根 K 线，5 分钟级别则约 15 根。当合并 K 线累计达到阈值仍无新笔成立时，强制划分出一笔。</p>
+<h3 id="_9">从最高最低点到次高次低<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>旧方案：达到阈值后，向上笔取区间最高 K 线、向下笔取最低 K 线强制成笔。这是一种倒推算法，产生两个问题：强制出来的笔可能连 5 根 K 线都没有（用户最常问的「这笔为什么不够 5 根」多源于此）；端点被钉死在极值上，划分生硬。</p>
+<p>新方案（重新定义的 15K 强制成笔）：允许<strong>次低点/次高点成笔</strong>。此前把 B 到 C 强制成笔时（哪怕只有 2、3 根 K 线）的情形，改为允许在次低位置成笔：</p>
+<p><img alt="15K强制成笔的新规则：次低成笔" src="../pics/02-8.png" /></p>
+<p>次高次低成笔定位为兜底算法的一种，不是唯一算法——目前先实现这一类场景，后续分类会逐步补充，采用「每次迈一小步」的方式渐进演化。设计者明确不希望一笔中包含的级别过度增长，次高次低划分正是控制级别增长的手段。</p>
+<h2 id="waveopt">笔模式与 WAVEOPT 参数体系<a class="headerlink" href="#waveopt" title="Permanent link">&para;</a></h2>
+<p>fqchan04 把成笔规则的全部可调项编码进一个参数：公式端叫 <code>WAVEOPT</code>（早期文档写作 <code>OPTS</code>），Python 端对应 <code>ChanOptions</code>。这是一个五位数字，各位含义如下：</p>
+<table>
+<thead>
+<tr>
+<th>数位</th>
+<th>控制项</th>
+<th>取值与含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>万位</td>
+<td>非完备笔是否合并</td>
+<td>0 = 不合并（默认）；1 = 合并到前一同向笔</td>
+</tr>
+<tr>
+<td>千位、百位</td>
+<td>强制成笔阈值</td>
+<td>两位数表示合并 K 线数；≥15 生效，可配 15/16/17…；&lt;15（如 14）即关闭强制成笔</td>
+</tr>
+<tr>
+<td>十位</td>
+<td>笔模式（严格程度）</td>
+<td>4 = 4 根 K 线成笔；5 = 5 根 K 线成笔；6 = 大笔模式；非 4/5/6 的值默认按 6 处理</td>
+</tr>
+<tr>
+<td>个位</td>
+<td>保留位</td>
+<td>预留给分型控制，暂未启用</td>
+</tr>
+</tbody>
+</table>
+<p>三种笔模式自宽到严：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>成笔条件</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模式 4</td>
+<td>合并 K 线数 ≥ 4</td>
+<td>最宽松</td>
+</tr>
+<tr>
+<td>模式 5</td>
+<td>合并 K 线数 ≥ 5，无附加几何约束</td>
+<td>原版笔</td>
+</tr>
+<tr>
+<td>模式 6</td>
+<td>模式 5 条件 + 分型区间不重叠 + 独立 K 线不躲进分型区间</td>
+<td>LV 严格笔，俗称「大笔」</td>
+</tr>
+</tbody>
+</table>
+<p>模式 6 之所以被叫作大笔：几何约束筛掉了大量顶底紧邻的候选，成笔更难，画出来的笔自然更长更大。默认参数 1560（模式 6 + 15K 强制成笔）就是作者日常主用的大笔模式。</p>
+<p>模式 5 与模式 6 的实战区别，集中在一类图形上：顶分型与底分型发生重叠（或中间 K 线躲在分型中）的候选笔。同一走势，模式 6 判定不成笔、笔直接延伸到更远端点；切换到模式 5 后此处即成一笔。遇到「为什么这里不成笔/多出一笔」的疑问，先检查笔模式。</p>
+<p>常用配置速查：</p>
+<table>
+<thead>
+<tr>
+<th>WAVEOPT</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1560</td>
+<td>默认：模式 6 大笔 + 15K 强制成笔，不合并非完备笔</td>
+</tr>
+<tr>
+<td>1550</td>
+<td>模式 5 原版笔 + 15K 强制成笔</td>
+</tr>
+<tr>
+<td>1460</td>
+<td>模式 6 大笔，关闭强制成笔（14 &lt; 15）</td>
+</tr>
+<tr>
+<td>11560</td>
+<td>模式 6 + 15K 强制成笔 + 合并非完备笔</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">笔信号序列<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>插件端笔的输出不是端点坐标，而是一个与 K 线等长的信号序列，每个 K 线位置一个值：</p>
+<table>
+<thead>
+<tr>
+<th>信号值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>笔顶；同时是下跌笔的开始、上涨笔的结束</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>笔底；同时是上涨笔的开始、下跌笔的结束</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>上涨笔成立或延续（笔内每次创新高都标记 0.5）</td>
+</tr>
+<tr>
+<td>-0.5</td>
+<td>下跌笔成立或延续（笔内每次创新低都标记 -0.5）</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>序列类型标记：笔信号序列中第一个 0 用 -3 代替，供程序识别这是笔序列</td>
+</tr>
+<tr>
+<td>0</td>
+<td>非笔信号位置</td>
+</tr>
+</tbody>
+</table>
+<p>一支笔的完整信号过程：</p>
+<ul>
+<li>上涨笔：从 -1（笔底）出发，笔初次成立处标记 0.5，此后每次创新高延续标记 0.5，最终在笔顶以 1 收束；</li>
+<li>下跌笔：从 1（笔顶）出发，以 -0.5 标记成立与延续，最终在笔底以 -1 收束。</li>
+</ul>
+<p><img alt="下跌笔的信号序列示例" src="../pics/02-10.png" /></p>
+<p>上图中标号 1 处信号值 1（下跌笔开始），标号 2 处 -0.5（下跌笔刚成立），标号 3~7 处 -0.5（逐次新低、下跌延续），标号 8 处 -1（下跌笔完成，也是上涨笔开始）。</p>
+<p>引入 ±0.5 中间态的动机是<strong>信号漂移</strong>：笔初次成立的位置不一定在笔的端点，笔成立后端点还会后移。只有端点值 ±1 的序列无法区分「笔刚成立」与「笔已走完」。中间态让下游可以在一笔进行中就捕捉到成立与延续状态，为开发不漂移的信号打下基础。下游已有实际消费：</p>
+<ul>
+<li>fqcopilot 模型 S0000（<code>MODELOPT=0</code>）：指示「笔已成立 + 出现反转信号」的风险位置，在笔的延续过程中逐次提示 pinbar、强分型、MA5 拐头等反转确认；</li>
+<li>fqcopilot 模型 S0017：把线段级支撑区间反转逻辑下沉到笔级别，消费 <code>wave_sigs</code> 笔信号序列，要求向下笔至少含 5 个分型结构才参与判定，进场更早、观察更近。</li>
+</ul>
+<h2 id="_11">常见误区与演进修正<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="_12">高频误区<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>「这笔不够 5 根 K 线，是不是画错了」</strong>——先看三个来源：缺口计数补足了 1 根；15K 强制成笔兜底（倒推端点可能不足 5 根）；它是非完备笔（小转大的投影）。三者都是设计内的行为。</li>
+<li><strong>「笔为什么不延伸到最低点」</strong>——笔应跟随极值延伸到最低/最高点；若未跟随属于缺陷，已修正。同时新笔成立需要分型确认，确认前的极值跟随与确认后的端点锁定是两件事。</li>
+<li><strong>「信号会漂移，不可用」</strong>——端点值确实会后移，这是笔的定义决定的；中间态 ±0.5 已把「成立」与「延续」显式化，实时场景应消费中间态而非端点值。</li>
+<li><strong>「模式 5 和模式 6 差在哪」</strong>——只差在分型重叠类图形：模式 6 额外要求分型区间不重叠、独立 K 线不躲分型，其余条件完全一致。</li>
+</ul>
+<h3 id="_13">规则演进脉络<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>这些规则不是一次成型的，按主题整理演进（去掉版本号噪音）：</p>
+<table>
+<thead>
+<tr>
+<th>主题</th>
+<th>演进</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>笔参数化</td>
+<td>最初笔不可调；后引入 OPTS/WAVEOPT 四位参数（4K/5K/LV 三模式 + 15K 强制），通达信先行，两周后金字塔、大智慧跟进</td>
+</tr>
+<tr>
+<td>缺口计数</td>
+<td>从「凡缺口计 1 根」细化为「缺口两侧与对方区间均无重叠才计数」</td>
+</tr>
+<tr>
+<td>非完备笔</td>
+<td>明确完备笔/非完备笔双轨并存 → 开放万位合并开关 → 订正合并算法缺陷</td>
+</tr>
+<tr>
+<td>模式 6</td>
+<td>初版要求独立 K 线不得同时与顶底分型区间重合 → 取消该要求 → 再放宽为仅保留「中间 K 线不躲分型」，模式 6 只比模式 5 略严</td>
+</tr>
+<tr>
+<td>强制成笔</td>
+<td>修正计数缺陷（超 15 根仍未成笔）→ 重新定义：从极值倒推改为允许次高/次低成笔</td>
+</tr>
+<tr>
+<td>笔信号</td>
+<td>引入 ±0.5 中间态 → 规范化信号转换过程并加入 -3 序列标记 → 修复一处画笔缺陷</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_14">同族插件的分笔路线<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>fqchan 系列对「笔」还有两条刻意简化的路线，可作为对照：</p>
+<ul>
+<li><strong>fqchan06 极简分笔法</strong>：不做包含处理、不判分型，只看 5 天最高最低价；两点之间只要存在两根互不重叠的 K 线（前一根最高价低于后一根最低价，即公允价值缺口），即成一笔。核心假设：无重叠的两根 K 线近似构成单 K 级别的两个「中枢」。实测效果不赖，体现了「用最简单的方法达到近似效果」。</li>
+<li><strong>fqchan05 均线笔</strong>：用 10 周期均线替代整个分型体系——连续 3 根 K 线不碰均线即为有效突破，配合五阶段状态机（初始化/追踪/确认）与端点迁移、安全回滚、尾部补录。信号值分层：±1 已确认端点、±0.5 潜在端点、±11/±12 分型确认（普通/强）。一条均线、一个判定条件，从根源上消除歧义。</li>
+</ul>
+<p>两条路线的完整算法见各自插件章节。</p>
+<h2 id="_15">用法<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="_16">公式端（通达信 / 金字塔 / 大智慧）<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>公式中一行调用即可，第二参数即 WAVEOPT：</p>
+<div class="highlight"><pre><span></span><code>OPTS:=1560;
+bi:="fqchan04@BI"(0,OPTS);
+</code></pre></div>
+<p><code>bi</code> 返回笔信号序列，可直接用于绘图或条件编写。调整严格程度改十位，关闭强制成笔把千位百位改到 14 以下，合并非完备笔加万位 1。</p>
+<h3 id="python-fqchan04-wheel">Python 端（fqchan04 wheel）<a class="headerlink" href="#python-fqchan04-wheel" title="Permanent link">&para;</a></h3>
+<p>安装对应 Python 版本的 wheel 后：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fqchan04</span>
+
+<span class="c1"># 默认参数：模式6 + 15K强制成笔 + 不合并非完备笔</span>
+<span class="n">sigs</span> <span class="o">=</span> <span class="n">fqchan04</span><span class="o">.</span><span class="n">fq_recognise_bi</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">high_prices</span><span class="p">,</span> <span class="n">low_prices</span><span class="p">)</span>
+
+<span class="c1"># 自定义：WAVEOPT=11550 的等价配置</span>
+<span class="c1"># （模式5 + 15K强制 + 合并非完备笔）</span>
+<span class="n">opts</span> <span class="o">=</span> <span class="n">fqchan04</span><span class="o">.</span><span class="n">ChanOptions</span><span class="p">(</span>
+    <span class="n">bi_mode</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">force_wave_stick_count</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">merge_non_complehensive_wave</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sigs</span> <span class="o">=</span> <span class="n">fqchan04</span><span class="o">.</span><span class="n">fq_recognise_bi</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">high_prices</span><span class="p">,</span> <span class="n">low_prices</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<p>WAVEOPT 与 <code>ChanOptions</code> 字段的对应关系：十位 ↔ <code>bi_mode</code>，千位百位 ↔ <code>force_wave_stick_count</code>，万位 ↔ <code>merge_non_complehensive_wave</code>。<code>allow_pivot_across</code> 是中枢参数，不属于笔。</p>
+<p>fqlite 选股工具中的实战用法（CLXS 策略）：以 <code>wave_opt=1560</code> 为默认参数跑全市场筛选，信号触发后从笔信号序列末尾向前找最近的 -1（笔底），用该位置最低价作为止损参考价：</p>
+<div class="highlight"><pre><span></span><code><span class="n">bi</span> <span class="o">=</span> <span class="n">fqchan04</span><span class="o">.</span><span class="n">fq_recognise_bi</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">high_prices</span><span class="p">,</span> <span class="n">low_prices</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bi</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">bi</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">stop_loss_price</span> <span class="o">=</span> <span class="n">low_prices</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+        <span class="k">break</span>
+</code></pre></div>
+<p>参数与信号值的完整文档见<a href="../%E7%95%AA%E8%8C%84%E7%BC%A0%E8%AE%BA%E6%8F%92%E4%BB%B6%E5%85%AC%E5%BC%8F%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E/">番茄缠论插件公式参数说明</a>与<a href="../%E7%95%AA%E8%8C%84%E7%BC%A0%E8%AE%BA%E6%8F%92%E4%BB%B6%E4%BF%A1%E5%8F%B7%E5%80%BC%E8%AF%B4%E6%98%8E/">番茄缠论插件信号值说明</a>，函数接口见 <a href="../Python%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E%E6%89%8B%E5%86%8C/">Python函数说明手册</a>。</p>
+<h2 id="_17">知识来源<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li>今天发布一个新版（2019-03-31）</li>
+<li>番茄缠论插件fqchan04更新了，版本标签是20240404（2024-04-04）</li>
+<li>番茄缠论插件更新，在金字塔和大智慧上支持笔参数，版本标签20240420（2024-04-20）</li>
+<li>番茄缠论插件更新来袭，修正两个笔的缺陷，版本v20240728（2024-07-28）</li>
+<li>更新番茄缠论插件(fqchan04)划笔时，有缺口的处理方式（2024-11-23）</li>
+<li>番茄缠论插件的笔划分中允许非标准笔的存在（2024-11-25）</li>
+<li>番茄缠论插件fqchan04，对笔模式6的要求进行调整（2024-12-20）</li>
+<li>解答圈友的关于笔的问题，模式6和模式5的区别（2024-12-21）</li>
+<li>fqchan04-2025-2-22：升级发布，未完备的笔可选择是否合并（2025-02-22）</li>
+<li>2025.3.23_缠论插件fqchan04更新（2025-03-24）</li>
+<li>2025.3.25_缠论插件fqcopilot更新（2025-03-25）</li>
+<li>同级别划分，我要重新定义一下15K强制成笔的情况（2025-08-24）</li>
+<li>继续昨日15K强制成笔的讨论，且今天发布插件程序更新（2025-08-26）</li>
+<li>Fqchan04更新日志：优化笔信号序列（2025-10-19）</li>
+<li>Fqchan04更新日志，优化笔的划分（2025-10-31）</li>
+<li>Fqchan04更新日志，除掉一个画笔的虫子（2025-11-28）</li>
+<li>Fqchan06 极简分笔法与仓位管理思考（2026-01-09）</li>
+<li>FqCopilot 新模型 S0017：S0016 的笔级别变种（2026-05-10）</li>
+<li>FqChan05缠论插件（均线笔：把缠论最复杂的部分变简单）（2026-06-09）</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+  
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script>
+    // Material 的 instant navigation 不会重新触发 DOMContentLoaded，
+    // 因此用 document$ 订阅，每次导航后重新注入。
+    document$.subscribe(function () {
+      const header = document.querySelector('.md-header__inner');
+      if (!header || header.querySelector('.md-header__home')) return;
+      const a = document.createElement('a');
+      a.className = 'md-header__home';
+      a.href = '/';            // 根相对路径：在哪个站点就回哪个站点首页，绝不跨站
+      a.title = '首页';
+      a.textContent = '⌂';
+      header.prepend(a);
+    });
+  </script>
+
+  </body>
+</html>
